@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'Messapia Bold';
+    src: url('../fonts/Messapia-Bold.woff') format('woff'),
+        url('../fonts/Messapia-Bold.woff2') format('woff2'),
+        url('../fonts/Messapia-Bold.otf') format('opentype');
+}
+
+body {
+    /* make the body fits our viewport */
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: hsla(0, 100%, 0%, 1);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#wrap-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#curtains-canvas {
+    /* make the canvas wrapper fits the document */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.curtain {
+    /* define the size of your plane */
+    width: 100%;
+    height: 100vh;
+}
+
+.curtain img {
+    /* hide the img element */
+    display: none;
+}
+
+.nav-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+}
+
+.nav-main ul {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    grid-row-gap: 2.3rem;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.nav-main li {
+    display: grid;
+    grid-template-areas: 'center';
+    font-family: 'Messapia Bold', Arial, sans-serif;
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.nav-main span {
+    grid-area: center;
+}
+
+.nav-main .first-menu {
+    z-index: 10;
+}
+
+.nav-main li:hover .second-menu {
+    transform: translate3d(0, 100%, 0);
+    opacity: 1;
+}
+
+.nav-main .second-menu {
+    transition-property: transform, opacity;
+    transition: 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    opacity: 0;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+}
+
+@media screen and (min-width: 600px) {
+    .nav-main ul {
+        width: 100%;
+        grid-template-columns: repeat(4, auto);
+    }
+
+    .plane {
+        /* define the size of your plane */
+        width: 50%;
+        height: 50vh;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .nav-main li {
+        font-size: 1.7rem;
+    }
+}
