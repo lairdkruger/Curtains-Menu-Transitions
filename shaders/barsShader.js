@@ -5,10 +5,15 @@ var barsShader = {
             type: '1f',
             value: 0,
         },
-        intensity: {
-            name: 'uIntensity',
+        bars: {
+            name: 'uBars',
             type: '1f',
             value: 50.0,
+        },
+        depth: {
+            name: 'uDepth',
+            type: '1f',
+            value: 0.5,
         },
     },
 
@@ -61,7 +66,8 @@ var barsShader = {
         uniform sampler2D nextTexture;
         uniform float uProgress;
 
-        uniform float uIntensity;
+        uniform float uBars;
+        uniform float uDepth;
 
         varying vec2 vUv;
 
@@ -76,10 +82,10 @@ var barsShader = {
 		const float angle2 = -PI * 0.75;
 
         void main() {
-			vec2 uvDivided = fract(vNextTextureCoord*vec2(uIntensity,1.));
+			vec2 uvDivided = fract(vNextTextureCoord*vec2(uBars, 1.0));
 
-			vec2 uvDisplaced1 = vTextureActiveCoord + rotate(3.1415926/4.)*uvDivided*uProgress*0.1;
-			vec2 uvDisplaced2 = vNextTextureCoord + rotate(3.1415926/4.)*uvDivided*(1. - uProgress)*0.1;
+			vec2 uvDisplaced1 = vTextureActiveCoord + rotate(3.1415926/4.)*uvDivided*uProgress * uDepth;
+			vec2 uvDisplaced2 = vNextTextureCoord + rotate(3.1415926/4.)*uvDivided*(1. - uProgress) * uDepth;
 
 			vec4 t1 = texture2D(textureActive, uvDisplaced1);
 			vec4 t2 = texture2D(nextTexture, uvDisplaced2);
