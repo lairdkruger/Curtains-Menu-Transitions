@@ -17,11 +17,15 @@ class TweakPane {
             .addInput(PARAMS, 'shader', {
                 options: {
                     fade: 'fadeShader',
-                    displacement: 'displacementShader',
-                    flyeye: 'flyeyeShader',
                     morph: 'morphShader',
-                    glitch: 'glitchShader',
+                    glitchPhase: 'glitchPhaseShader',
+                    flyeye: 'flyeyeShader',
+                    fall: 'fallShader',
+                    displacement: 'displacementShader',
+                    bars: 'barsShader',
                     perlin: 'perlinShader',
+                    wipe: 'wipeShader',
+                    glitch: 'glitchShader',
                 },
             })
             .on('change', shaderString => {
