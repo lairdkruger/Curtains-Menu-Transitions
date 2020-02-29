@@ -8,7 +8,7 @@ var glitchPhaseShader = {
         intensity: {
             name: 'uIntensity',
             type: '1f',
-            value: 2.0,
+            value: 0.2,
         },
     },
 
