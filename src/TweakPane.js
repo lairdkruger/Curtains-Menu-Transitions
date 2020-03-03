@@ -26,6 +26,8 @@ class TweakPane {
                     perlin: 'perlinShader',
                     wipe: 'wipeShader',
                     glitch: 'glitchShader',
+                    dither: 'ditherShader',
+                    morphDither: 'morphDitherShader',
                 },
             })
             .on('change', shaderString => {
